@@ -10,24 +10,26 @@ Synthetic speech often sounds unnatural due to issues in prosody, pronunciation,
 
  <h1 align = "center"><img src="https://github.com/mu9326/OT-Speech-Enhancement/blob/main/sys_pipeline.png" width="300" /></h1>
 
-* *Data Preparation: Load bonafide and spoofed speech samples from the ASVspoof2019 dataset.*
-* *Embedding Generation: Extract speech embeddings using the pretrained WavLM model.*
-* *OT-Based Alignment: Apply the Sinkhorn algorithm to align spoofed embeddings to the distribution of natural speech.*
-* *Reconstruction: Convert mapped embeddings to mel-spectrograms and reconstruct audio using HiFi-GAN vocoder.*
-* *Evaluation:*
-*   *Subjective: Human listening tests for prosody and phonetic quality.*
-*   *Objective: AASIST model's probability of detecting speech as fake.*
+- Data Preparation: Load bonafide and spoofed speech samples from the ASVspoof2019 dataset.
+- Embedding Generation: Extract speech embeddings using the pretrained WavLM model.
+- OT-Based Alignment: Apply the Sinkhorn algorithm to align spoofed embeddings to the distribution of natural speech.
+- Reconstruction: Convert mapped embeddings to mel-spectrograms and reconstruct audio using HiFi-GAN vocoder.*
+- Evaluation:
+    - Subjective: Human listening tests for prosody and phonetic quality.*
+    - Objective: AASIST model's probability of detecting speech as fake.*
 
 # Results:
-
-AASIST score (fake → real probability):
-    * Original fake: 0.97*
-    * After vocoding: 0.72*
-    * After OT + vocoding: 0.43
-
-This reduction indicates that OT-based alignment significantly improves the realism of generated speech.
+Human evaluations on selected speech samples showed slight improvements in prosody and phonetic quality after applying OT. In contrast, AASIST, which outputs a probability score for how likely speech is fake, revealed the following results:
+- Fake speech was initially detected with an extremely high score of 0.97.
+- Applying OT significantly reduced the detection score to 0.43.
+- Vocoding alone slightly reduced the score to 0.72 but was not sufficient.
+- This confirms that OT-driven alignment, not just vocoding, contributed meaningfully to reducing detectability.
 
  <h1 align = "center"><img src="https://github.com/mu9326/OT-Speech-Enhancement/blob/main/results.png" width="300" /></h1>
+
+Key Insight:
+While vocoding alone improves surface quality, Optimal Transport meaningfully aligns deep acoustic embeddings, reducing the chances of synthetic speech being detected as fake by a robust deepfake detector like AASIST.
+
 
 # Citation:
 @misc{udasi2025otspeech,
