@@ -7,16 +7,15 @@ This repository contains the code and other resources for the project "Enhancing
 Synthetic speech often sounds unnatural due to issues in prosody, pronunciation, and rhythm. This project investigates how Optimal Transport—a mathematical technique used to align probability distributions—can improve the quality of generated speech. The improvements are evaluated through human feedback and automatic spoof detection scores using the AASIST model.
 
 # System Pipeline:
-
- <h1 align = "center"><img src="https://github.com/mu9326/OT-Speech-Enhancement/blob/main/sys_pipeline.png" width="300" /></h1>
-
 - Data Preparation: Load bonafide and spoofed speech samples from the ASVspoof2019 dataset.
 - Embedding Generation: Extract speech embeddings using the pretrained WavLM model.
 - OT-Based Alignment: Apply the Sinkhorn algorithm to align spoofed embeddings to the distribution of natural speech.
-- Reconstruction: Convert mapped embeddings to mel-spectrograms and reconstruct audio using HiFi-GAN vocoder.*
+- Reconstruction: Convert mapped embeddings to mel-spectrograms and reconstruct audio using HiFi-GAN vocoder.
 - Evaluation:
-    - Subjective: Human listening tests for prosody and phonetic quality.*
-    - Objective: AASIST model's probability of detecting speech as fake.*
+    - Subjective: Human listening tests for prosody and phonetic quality.
+    - Objective: AASIST model's probability of detecting speech as fake.
+
+ <h1 align = "center"><img src="https://github.com/mu9326/OT-Speech-Enhancement/blob/main/sys_pipeline.png" width="300" /></h1>
 
 # Results:
 Human evaluations on selected speech samples showed slight improvements in prosody and phonetic quality after applying OT. In contrast, AASIST, which outputs a probability score for how likely speech is fake, revealed the following results:
