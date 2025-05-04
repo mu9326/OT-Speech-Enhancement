@@ -8,6 +8,9 @@ Synthetic speech often sounds unnatural due to issues in prosody, pronunciation,
 
 # System Pipeline:
 
+ <h1 align = "center"><img src="https://github.com/mu9326/OT-Speech-Enhancement/blob/main/sys_pipeline.png" width="200" /></h1>
+
+
 * *Data Preparation: Load bonafide and spoofed speech samples from the ASVspoof2019 dataset.*
 * *Embedding Generation: Extract speech embeddings using the pretrained WavLM model.*
 * *OT-Based Alignment: Apply the Sinkhorn algorithm to align spoofed embeddings to the distribution of natural speech.*
