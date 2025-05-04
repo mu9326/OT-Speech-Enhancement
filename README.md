@@ -10,7 +10,6 @@ Synthetic speech often sounds unnatural due to issues in prosody, pronunciation,
 
  <h1 align = "center"><img src="https://github.com/mu9326/OT-Speech-Enhancement/blob/main/sys_pipeline.png" width="300" /></h1>
 
-
 * *Data Preparation: Load bonafide and spoofed speech samples from the ASVspoof2019 dataset.*
 * *Embedding Generation: Extract speech embeddings using the pretrained WavLM model.*
 * *OT-Based Alignment: Apply the Sinkhorn algorithm to align spoofed embeddings to the distribution of natural speech.*
@@ -19,5 +18,23 @@ Synthetic speech often sounds unnatural due to issues in prosody, pronunciation,
 *   *Subjective: Human listening tests for prosody and phonetic quality.*
 *   *Objective: AASIST model's probability of detecting speech as fake.*
 
+# Results:
+
+AASIST score (fake → real probability):
+    * Original fake: 0.97*
+    * After vocoding: 0.72*
+    * After OT + vocoding: 0.43
+
+This reduction indicates that OT-based alignment significantly improves the realism of generated speech.
+
+ <h1 align = "center"><img src="https://github.com/mu9326/OT-Speech-Enhancement/blob/main/results.png" width="300" /></h1>
+
+# Citation:
+@misc{udasi2025otspeech,
+  title={Enhancing Synthetic Speech Naturalness Through Optimal Transport},
+  author={Dr. Anton Selitskiy, Mona Anil Udasi},
+  year={2025},
+  note={Capstone Project Poster, RIT}
+}
 
 
